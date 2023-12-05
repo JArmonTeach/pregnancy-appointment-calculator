@@ -11,7 +11,7 @@ def main():
     first_appt = datetime.datetime.strptime(first_appt, "%m/%d/%Y")
 
     #Calculate next appointment
-    test_one = datetime.timedelta(weeks = 1)
+    test_one = datetime.timedelta(days = 7)
     next_appt = first_appt + test_one
     print("Estimated next appointment will be on " + next_appt.strftime("%m/%d/%Y"))
 
