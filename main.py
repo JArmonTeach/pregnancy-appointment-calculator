@@ -53,6 +53,30 @@ def two_weeks(due_date):
     print("\n")
 
 
+"""
+Function Name: four_weeks
+Input Params: due_date (string)
+Description: Function calculates the dates for appointments a pregnant patient needs within 0-28 weeks of pregnancy. The intervals between each appointment is four weeks during this stage of pregnancy.
+Return Value: none
+"""
+
+
+def four_weeks(due_date):
+    dates_count = 8
+    day_count = 63
+    weeks_away = 28
+
+    while dates_count > 0:
+        month_interval = datetime.timedelta(day_count)
+        first_stage_appt = due_date - month_interval
+
+        dates_count -= 1
+
+        print(first_stage_appt.strftime("%m/%d/%Y"), "(", weeks_away, "weeks away )")
+        weeks_away = weeks_away - 4
+        day_count = day_count + 28
+
+    print("\n")
 
 
 def main():
@@ -67,7 +91,7 @@ def main():
     # Calculate next appointment
     one_week(exp_due_date)
     two_weeks(exp_due_date)
-
+    four_weeks(exp_due_date)
 
 if __name__ == "__main__":
     main()
