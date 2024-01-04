@@ -63,7 +63,7 @@ Return Value: none
 
 def four_weeks(due_date):
     dates_count = 8
-    day_count = 63
+    day_count = 83
     weeks_away = 28
 
     while dates_count > 0:
