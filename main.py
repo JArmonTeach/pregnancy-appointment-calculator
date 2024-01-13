@@ -92,4 +92,5 @@ def get_all_dates(event):
     input_text = document.querySelector("#exp-due-date")
     date = input_text.value
     output_div = document.querySelector("#output")
-    output_div.innerText = get_all_dates(date)
+    # output_div.innerText = datetime.get_all_dates(date)
+    output_div.innerText = datetime.datetime.strptime(date, "%m/%d/%Y")
