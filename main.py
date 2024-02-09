@@ -83,16 +83,30 @@ def four_weeks(due_date):
 def main():
     # Display Title and Instructions
     print("Appointment Calculator")
-    print("Please enter the Expected Due Date")
+    
+    while True:
+        print("Please enter the Expected Due Date")
 
-    # Receive the input
-    exp_due_date = input("Expected Due Date (mm/dd/yyyy): ")
-    exp_due_date = datetime.datetime.strptime(exp_due_date, "%m/%d/%Y")
+        # Receive the input
+        exp_due_date = input("Expected Due Date (mm/dd/yyyy): ")
 
-    # Calculate next appointment
-    one_week(exp_due_date)
-    two_weeks(exp_due_date)
-    four_weeks(exp_due_date)
+        if exp_due_date == 'q' or exp_due_date == 'Q':
+            break
+
+        exp_due_date = datetime.datetime.strptime(exp_due_date, "%m/%d/%Y")
+
+        format = "%m/%d/%Y"
+        inputRes = True
+        try:
+            inputRes = bool(exp_due_date)
+        except ValueError:
+            inputRes = False
+            print("The format is incorrect. Please make sure to enter mm/dd/yyyy")
+
+        # Calculate next appointment
+        one_week(exp_due_date)
+        two_weeks(exp_due_date)
+        four_weeks(exp_due_date)
 
 
 if __name__ == "__main__":
